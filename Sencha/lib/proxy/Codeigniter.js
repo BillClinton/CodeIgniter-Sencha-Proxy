@@ -16,7 +16,7 @@ Ext.define('Appunto.lib.proxy.Codeigniter', {
 	],
 
 
-	/*
+	/**
 	 * The ci_site_url value should reflect your deployment.
 	 * 
 	 * ci_site_url should be set like this in your view:
@@ -29,9 +29,18 @@ Ext.define('Appunto.lib.proxy.Codeigniter', {
 	 * Stripping the trailing slash, then adding a trailing slash on site_url
 	 * ensures that we don't get a double slash or a missing trailing slash when
 	 * removing or using index.php
-	 *
 	 */ 
-	site_url	: ci_site_url, 	// has a trailing slash
+	site_url			: ci_site_url, 	// has a trailing slash
+
+	/**
+	 * If CSRF protection is turned on by setting $config['csrf_protection'] = TRUE the CodeIgniter config.php,
+	 * you must set the values of these two variables to the match the variables set in the config.php
+	 *
+	 * csrf_token_name must match $config['csrf_token_name']
+	 * csrf_cookie_name must match $config['csrf_cookie_name'] 
+	 */
+	csrf_token_name		: 'csrf_test_name',
+	csrf_cookie_name	: 'csrf_cookie_name', 
 
 	config: {
 		ci_class 	: '', 	// leave this blank, for initialization only.
@@ -107,7 +116,7 @@ Ext.define('Appunto.lib.proxy.Codeigniter', {
 	 * - op: Represents the codeigniter controller class function, or ci_method, that should be called.
 	 *
 	 *
-	 * Overrides function in Ext.data.proxy.Ajax
+	 * Overrides function in Ext.data.proxy.Server 
 	 * 
      * @private
      * @param {Ext.data.Request} request The request
@@ -118,6 +127,30 @@ Ext.define('Appunto.lib.proxy.Codeigniter', {
 		this.setCi_methodString(request);
 
 		return this.site_url+this.getCi_class()+'/'+this.getCi_method();
+	},
+
+    /**
+     * Override the doRequest function in Ext.data.proxy.Ajax to add the CSRF parameter
+     */
+	doRequest: function(operation) 
+	{
+		this.setCSRFParam();
+		this.callParent(arguments);
+	},
+
+	/**
+	 * Add the CSRF parameter if retrieved by cookie
+	 */
+	setCSRFParam: function() 
+	{
+		var csrf_token	= this.csrf_token_name,
+			csrf_cookie	= this.csrf_cookie_name,
+			csrf_value 	= Ext.util.Cookies.get(csrf_cookie);
+
+		if (csrf_value != null)
+		{
+			this.setExtraParam(csrf_token,csrf_value);
+		} 
 	},
    
     // operation exception
@@ -216,7 +249,7 @@ Ext.define('Appunto.lib.proxy.Codeigniter', {
 	},
 
 	/**
-	 * This is a good place to localize messages
+	 * This is a good place to intercept and localize messages
 	 */
 	getErrorMsg: function(type) 
 	{
