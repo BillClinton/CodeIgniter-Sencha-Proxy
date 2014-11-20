@@ -5,21 +5,13 @@ An extension of Ext.data.proxy.Ajax for communicating with CodeIgniter and a Cod
 
 for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 
-<!-- MarkdownTOC depth=4 autolink=true bracket=round -->
-
 - [Information](#information)
 	- [Features](#features)
 	- [Supported versions](#supported-versions)
-	- [Limitations](#limitations)
-- [Installation and Configuration](#installation-and-configuration)
-	- [Set up proxy in your Ext JS application](#set-up-proxy-in-your-ext-js-application)
-		- [Add the proxy files to your Ext JS application.js](#add-the-proxy-files-to-your-ext-js-applicationjs)
-		- [Include the library at the top of your Application.js](#include-the-library-at-the-top-of-your-applicationjs)
-		- [Refresh your Ext JS application](#refresh-your-ext-js-application)
+	- [Supported versions](#supported-versions-1)
+	- [Installation and Configuration](#installation-and-configuration)
+		- [Set up proxy in your Ext JS application](#set-up-proxy-in-your-ext-js-application)
 		- [Set up proxy in your CodeIgniter application](#set-up-proxy-in-your-codeigniter-application)
-			- [Add the library to your CodeIgniter Application](#add-the-library-to-your-codeigniter-application)
-			- [Add the helper to your CodeIgniter Application](#add-the-helper-to-your-codeigniter-application)
-			- [Copy the resources folder to the root of your application directory](#copy-the-resources-folder-to-the-root-of-your-application-directory)
 	- [Using the library in your Ext JS code](#using-the-library-in-your-ext-js-code)
 		- [Add the proxy to your Ext JS model](#add-the-proxy-to-your-ext-js-model)
 		- [Load store data](#load-store-data)
@@ -73,6 +65,7 @@ where you copied the Codeigniter.js, CiReader.js, and CiWriter.js files
 #### Refresh your Ext JS application
 
 run __sencha app refresh__
+
 
 ### Set up proxy in your CodeIgniter application
 
