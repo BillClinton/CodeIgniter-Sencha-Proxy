@@ -1,7 +1,8 @@
 CodeIgniter-Sencha-Proxy
 ========================
 
-An extension of Ext.data.proxy.Ajax for communicating with CodeIgniter and a CodeIgniter library for formatting results
+An extension of Ext.data.proxy.Ajax for communicating with CodeIgniter and a CodeIgniter library 
+for formatting and transmitting results to Ext JS 5 applications
 
 for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 
