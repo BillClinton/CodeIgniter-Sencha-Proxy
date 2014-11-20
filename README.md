@@ -155,9 +155,8 @@ record by adding the ci_method configuration parameter to the save function like
 
 #### Update records
 
-Example of creating and saving a record populated by form data:
+Example of updating a record populated by form data:
 ```
-
     updateUser: function(button) 
 	{
         var panel	= button.up('panel'),
@@ -185,6 +184,27 @@ The above example will attempt to update the record using a URI of user/update. 
 above in the create example, you can alter the name of the CodeIgniter controller function
 being called by adding the ci_method configuration parameter to the save function.
 
+#### Update records
+
+Example of deleting a record:
+```
+		record.erase(
+			{
+				success: function() { store.remove(record); } 
+			}
+		);
+```
+The above example will attempt to delete the record using a URI of user/destroy.  As mentioned
+above in the previous examples, you can alter the name of the CodeIgniter controller function
+being called by adding the ci_method configuration parameter to the erase function, like this:
+```
+		record.erase(
+			{
+				ci_method	: 'delete_user'  // CodeIgniter function name
+				success		: function() { store.remove(record); } 
+			}
+		);
+```
 
 ## Notes
 
