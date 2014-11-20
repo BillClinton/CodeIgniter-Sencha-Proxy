@@ -153,7 +153,7 @@ record by adding the ci_method configuration parameter to the save function like
 			});	
 ```
 
-#### Update records
+#### Delete records
 
 Example of updating a record populated by form data:
 ```
@@ -206,7 +206,116 @@ being called by adding the ci_method configuration parameter to the erase functi
 		);
 ```
 
-## Notes
+## Using the library in your CodeIgniter code
+
+
+Include the library in your model code:
+```
+$this->load->library('Senchaproxy');
+``` 
+
+The library includes two functions for formatting results
+	- formatQueryResult() : formats query results
+	- formatOperationResult() : formats results of insert, update and delete operations
+
+#### Format query results
+
+Example of formatting the results of a SELECT query:
+
+```
+$query = $this->db->get('mytable');
+$total = $this->db->count_all_results();
+
+// return formatted result
+return $this->senchaproxy->formatQueryResult($query,$total);
+```
+
+#### Format operation results
+
+Example of formatting the results of a DB insert:
+
+```
+$this->db->set('username',$data['username']);
+$this->db->set('email',$data['email']);
+
+$query = $this->db->insert(mytable);
+
+// get newly created record
+$record = $this->get($this->db->insert_id());
+
+// return formatted result
+return $this->senchaproxy->formatOperationResult($query,array($record[0]));
+```
+formatOperationResult optionally returns a record so you can send back a record with the new id
+and potentially perform other operations without reloading the store. 
+
+
+Example of formatting the results of a DB update:
+
+```
+// get/set the id and remove it from the data array
+$id = $data['id'];
+$this->db->where('id', $id);
+unset($data['id']);
+
+// execute query
+$query = $this->db->update($this->table, $data);
+
+// get the record
+$record = $this->get($id)
+
+// return formatted result
+return $this->senchaproxy->formatOperationResult($query,$record);
+```
+formatOperationResult optionally returns a record so in this example a "get" method that returns a single 
+record is being called.  This can be useful if some record values are changed by on_update db triggers.
+
+Example of formatting the results of a DB delete:
+```
+// get/set the id 
+$this->db->where('id', $data['id']);
+
+// execute query
+$query = $this->db->delete('my_table);
+
+// return formatted result
+return $this->senchaproxy->formatOperationResult($query);
+```
+You can see these examples in action in the demo, or in the source of the example code available in src/CodeIgniter
+
+#### Sending responses from Controller
+
+The library includes a sendResponse function for encoding responses and sending them to the user.
+
+Example of a controller create function using send response to either return form validation errors or
+the result :
+```
+    function create()
+    {
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('email', 'Email address', 'trim|required|valid_email|xss_clean');
+
+        if ($this->form_validation->run()==FALSE) 
+        {
+            $result = array (
+                'success'   => false,
+                'msg'       => 'Errors were encountered with your request.  Please correct them and try again.',
+                'errors'    => validation_errors()
+            );
+        } 
+        else 
+        {
+			// return all POST items with XSS filter
+            $data = $this->input->post(NULL, TRUE); 
+
+            // get result
+            $result = $this->usermodel->create_record($data);
+        }
+        $this->senchaproxy->sendResponse($result);
+	}
+```
+
+# Notes
 
 #### Note on updating records
 
