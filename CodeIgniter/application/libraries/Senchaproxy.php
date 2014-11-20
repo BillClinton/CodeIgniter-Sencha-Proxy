@@ -101,4 +101,24 @@ class Senchaproxy
         }
         return $result;
     }
+
+	/**
+	 * Return a Javascript snippet with items from the appunto_auth.php config file.
+	 *
+	 * @return	string
+	 */
+	public function jsConfigItems()
+	{
+		$js = '<script type="text/javascript">';
+
+		$js .= 'var ci_site_url = "'.rtrim(site_url(), "/").'/",';
+		$js .= 'ci_login_url = "'.$this->CI->config->item('login_url','appunto-auth/appunto_auth').'",';
+		$js .= 'ci_logout_url = "'.$this->CI->config->item('logout_url','appunto-auth/appunto_auth').'",';
+		$js .= 'admin_keepalive='.$this->CI->config->item('admin_keepalive','appunto-auth/appunto_auth').',';
+		$js .= 'pw_regex = "'.$this->CI->config->item('password_regex_js','appunto-auth/appunto_auth').'",';
+		$js .= 'datetime_format= "'.$this->CI->config->item('datetime_format','appunto-auth/appunto_auth').'";';
+		$js .= '</script>';
+
+		return $js;
+	}
 }
