@@ -7,7 +7,7 @@ for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 
 ## Features
 - Sends data to CodeIgniter controllers in POST so CodeIgniter form validation library can be used
-- Reads CodeIgniter error pages for desriptive error pop-ups rather than JSON decoding errors
+- Reads CodeIgniter error pages for descriptive error pop-ups rather than JSON decoding errors
 - Catches JSON decoding exceptions
 - Builds CodeIgniter URIs using CRUD operation actions or optional config parameters
 - Automatically sends CSRF info with requests if CSRF is enabled
@@ -45,10 +45,11 @@ run __sencha app refresh__
 #### Add the library to your CodeIgniter Application
 
 Copy Senchaproxy.php from the CodeIgniter-Sencha-Proxy/CodeIgniter/application/libraries 
-to Your CodeIgniter application/libraries directory
+to your CodeIgniter application/libraries directory.  Include the library in your controller
+and model code like this:
 
 ```
-$this->load->library('Senchaproxy');
+$this->load->library('senchaproxy');
 ```
 
 
@@ -57,7 +58,7 @@ $this->load->library('Senchaproxy');
 Copy senchaproxy_helper.php from the CodeIgniter-Sencha-Proxy/CodeIgniter/application/helpers
 directory to your CodeIgniter application/helpers directory
 
-The senchaproxy_helper.php contains a helper function _senchaproxy_config_ that will return a Javascript 
+The senchaproxy_helper.php contains a helper function __senchaproxy_config__ that will return a Javascript 
 snippet that sets variables needed by the Codeigniter proxy such as the site_url so it knows where to 
 send requests and CSRF information if applicable. It will also include the CSS file relative to the root of
 your application using base_url()
@@ -88,7 +89,7 @@ Add the proxy to your model's configuration like this:
 Ext.require('Ext.data.Model');
 Ext.require('Appunto.lib.proxy.Codeigniter');
 
-Ext.define('ProxyExample.model.User', 
+Ext.define('MyApplication.model.User', 
 {
     extend: 'Ext.data.Model',
     fields: [
@@ -105,11 +106,11 @@ Ext.define('ProxyExample.model.User',
     }
 });
 ```
-The __ci_class__ attribute is your controller class name.
+The __ci_class__ attribute is your CodeIgniter controller class name.
 
 #### Load store data
 
-A store.load() command on a store that uses the above model will load the store using a user/read URI.
+A store.load() command on a store that uses the above model will load the store using a __user/read__ URI.
 
 If you name your controller function something other than read, for example "get_data", you can
 load your store like this:
@@ -117,7 +118,7 @@ load your store like this:
 ```
 store.load( {ci_method: 'get_data' } ); 
 ```
-this would attempt to load the store using a user/get_data URI
+This would attempt to load the store using a __user/get_data__ URI
 
 #### Create records
 
@@ -155,7 +156,7 @@ Example of creating and saving a record populated by form data:
 	},
 ```
 
-The above example will attempt to create the record using a URI of user/create .  If you name 
+The above example will attempt to create the record using a URI of __user/create__.  If you name 
 your controller function something other than read, for example "add_user", you can save your 
 record by adding the ci_method configuration parameter to the save function like this:
 ```
@@ -192,9 +193,9 @@ Example of updating a record populated by form data:
     },
 ```
  
-The above example will attempt to update the record using a URI of user/update.  As mentioned
-above in the create example, you can alter the name of the CodeIgniter controller function
-being called by adding the ci_method configuration parameter to the save function.
+The above example will attempt to update the record using a URI of __user/update__.  As mentioned
+above, you can alter the name of the CodeIgniter controller function being called by adding the 
+ci_method configuration parameter to the save function.
 
 #### Update records
 
@@ -227,8 +228,8 @@ $this->load->library('Senchaproxy');
 ``` 
 
 The library includes two functions for formatting results
-	- formatQueryResult() : formats query results
-	- formatOperationResult() : formats results of insert, update and delete operations
+- formatQueryResult() : formats query results
+- formatOperationResult() : formats results of insert, update and delete operations
 
 #### Format query results
 
