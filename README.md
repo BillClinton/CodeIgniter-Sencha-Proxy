@@ -5,6 +5,38 @@ An extension of Ext.data.proxy.Ajax for communicating with CodeIgniter and a Cod
 
 for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 
+<!-- MarkdownTOC depth=4 autolink=true bracket=round -->
+
+- [Information](#information)
+	- [Features](#features)
+	- [Supported versions](#supported-versions)
+	- [Limitations](#limitations)
+- [Installation and Configuration](#installation-and-configuration)
+	- [Set up proxy in your Ext JS application](#set-up-proxy-in-your-ext-js-application)
+		- [Add the proxy files to your Ext JS application.js](#add-the-proxy-files-to-your-ext-js-applicationjs)
+		- [Include the library at the top of your Application.js](#include-the-library-at-the-top-of-your-applicationjs)
+		- [Refresh your Ext JS application](#refresh-your-ext-js-application)
+		- [Set up proxy in your CodeIgniter application](#set-up-proxy-in-your-codeigniter-application)
+			- [Add the library to your CodeIgniter Application](#add-the-library-to-your-codeigniter-application)
+			- [Add the helper to your CodeIgniter Application](#add-the-helper-to-your-codeigniter-application)
+			- [Copy the resources folder to the root of your application directory](#copy-the-resources-folder-to-the-root-of-your-application-directory)
+	- [Using the library in your Ext JS code](#using-the-library-in-your-ext-js-code)
+		- [Add the proxy to your Ext JS model](#add-the-proxy-to-your-ext-js-model)
+		- [Load store data](#load-store-data)
+		- [Create records](#create-records)
+		- [Delete records](#delete-records)
+		- [Update records](#update-records)
+	- [Using the library in your CodeIgniter code](#using-the-library-in-your-codeigniter-code)
+		- [Format query results](#format-query-results)
+		- [Format operation results](#format-operation-results)
+		- [Sending responses from Controller](#sending-responses-from-controller)
+- [Notes](#notes)
+	- [Note on updating records](#note-on-updating-records)
+
+<!-- /MarkdownTOC -->
+
+# Information
+
 ### Features
 - Sends data to CodeIgniter controllers in POST so CodeIgniter form validation library can be used
 - Reads CodeIgniter error pages for descriptive error pop-ups rather than JSON decoding errors
