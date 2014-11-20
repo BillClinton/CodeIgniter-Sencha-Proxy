@@ -5,17 +5,17 @@ An extension of Ext.data.proxy.Ajax for communicating with CodeIgniter and a Cod
 
 for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 
-# Installation and Configuration
+## Installation and Configuration
 
-## Set up proxy in your Ext JS application
+### Set up proxy in your Ext JS application
 
-### Add the proxy files to your Ext JS application.js
+#### Add the proxy files to your Ext JS application.js
 
 Copy the Codeigniter.js, CiReader.js, and CiWriter.js files from the CodeIgniter-Sencha-Proxy/Sencha/lib/proxy directory
 to your Ext JS application directory.  I suggest creating a lib/proxy directory path under your app directory so the files reside
 in application_directory/app/lib/proxy 
 
-### Include the library at the top of your Application.js
+#### Include the library at the top of your Application.js
 ```
 Ext.Loader.setPath('SenchaProxy.lib.proxy', './lib/proxy/');
 Ext.require('SenchaProxy.lib.proxy.Codeigniter');
@@ -24,13 +24,13 @@ Ext.require('SenchaProxy.lib.proxy.Codeigniter');
 Make sure you adjust the second parameter of Ext.Loader.setPath to the directory 
 where you copied the Codeigniter.js, CiReader.js, and CiWriter.js files
 
-### Refresh your Ext JS application
+#### Refresh your Ext JS application
 
 run __sencha app refresh__
 
-## Set up proxy in your CodeIgniter application
+### Set up proxy in your CodeIgniter application
 
-### Add the library to your CodeIgniter Application
+#### Add the library to your CodeIgniter Application
 
 Copy Senchaproxy.php from the CodeIgniter-Sencha-Proxy/CodeIgniter/application/libraries 
 to Your CodeIgniter application/libraries directory
@@ -40,7 +40,7 @@ $this->load->library('Senchaproxy');
 ```
 
 
-### Add the helper to your CodeIgniter Application
+#### Add the helper to your CodeIgniter Application
 
 Copy senchaproxy_helper.php from the CodeIgniter-Sencha-Proxy/CodeIgniter/application/helpers
 directory to your CodeIgniter application/helpers directory
@@ -59,10 +59,9 @@ and reference it in your view, in the <head> section, before your Ext JS files l
 ```
 <? echo senchaproxy_config() ?>
 ```
-```
 
 
-### Load the library
+#### Load the library
 
 Add the Senchaproxy library to your config/autoload.php
 ```
