@@ -8,7 +8,7 @@ for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 - [Information](#information)
 	- [Features](#features)
 	- [Supported versions](#supported-versions)
-	- [Supported versions](#supported-versions-1)
+	- [Limitations](#limitations)
 	- [Installation and Configuration](#installation-and-configuration)
 		- [Set up proxy in your Ext JS application](#set-up-proxy-in-your-ext-js-application)
 		- [Set up proxy in your CodeIgniter application](#set-up-proxy-in-your-codeigniter-application)
@@ -40,7 +40,7 @@ for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 ### Supported versions
 CodeIgniter-Sencha-Proxy has been tested with Ext JS 5.0.1 GPL and CodeIgniter 2.20
 
-### Supported versions
+### Limitations
 CodeIgniter-Sencha-Proxy does not support batch operations.
  
 ## Installation and Configuration
