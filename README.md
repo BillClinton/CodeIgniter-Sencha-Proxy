@@ -6,12 +6,12 @@ An extension of Ext.data.proxy.Ajax for communicating with CodeIgniter and a Cod
 for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 
 ## Features
-	- Sends data to CodeIgniter controllers in POST so CodeIgniter form validation library can be used
-	- Reads CodeIgniter error pages for desriptive error pop-ups rather than JSON decoding errors
-	- Catches JSON decoding exceptions
-	- Builds CodeIgniter URIs using CRUD operation actions or optional config parameters
-	- Automatically sends CSRF info with requests if CSRF is enabled
-	- Includes CodeIgniter library functions for formatting/transmitting data to Ext JS applications
+- Sends data to CodeIgniter controllers in POST so CodeIgniter form validation library can be used
+- Reads CodeIgniter error pages for desriptive error pop-ups rather than JSON decoding errors
+- Catches JSON decoding exceptions
+- Builds CodeIgniter URIs using CRUD operation actions or optional config parameters
+- Automatically sends CSRF info with requests if CSRF is enabled
+- Includes CodeIgniter library functions for formatting/transmitting data to Ext JS applications
 
 ## Supported versions
 CodeIgniter-Sencha-Proxy has been tested with Ext JS 5.0.1 GPL and CodeIgniter 2.20
