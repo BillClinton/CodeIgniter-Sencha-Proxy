@@ -21,6 +21,8 @@ if ( ! function_exists('senchaproxy_config'))
 		}
 		$js .= '</script>';
 
-		return $js;
+		$css = '<link rel="stylesheet" type="text/css" href="'.base_url().'resources/proxy/css/icons.css" />';
+
+		return $js . PHP_EOL . $css;
 	}
 }

@@ -231,6 +231,7 @@ Ext.define('Appunto.lib.proxy.Codeigniter', {
 			title	: title,
 			iconCls	: 'exclamation',
 			layout	: 'fit',
+			cls		: 'ci-message-window',
 			modal	: true,
 			items: {  
 				xtype		: 'container',
