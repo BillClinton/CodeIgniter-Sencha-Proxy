@@ -56,7 +56,7 @@ Include the helper in your controllers like this:
 $this->load->helper('senchaproxy');
 ```
 
-and reference it in your view, in the <head> section, before your Ext JS files like this:
+and reference it in your view, in the &lt;head&gt; section, before your Ext JS files like this:
 ```
 <? echo senchaproxy_config() ?>
 ```
@@ -93,7 +93,7 @@ Ext.define('ProxyExample.model.User',
     }
 });
 ```
-The _ci_class_ attribute is your controller class name.
+The __ci_class__ attribute is your controller class name.
 
 #### Load store data
 
