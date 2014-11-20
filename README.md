@@ -5,7 +5,7 @@ An extension of Ext.data.proxy.Ajax for communicating with CodeIgniter and a Cod
 
 for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 
-## Features
+### Features
 - Sends data to CodeIgniter controllers in POST so CodeIgniter form validation library can be used
 - Reads CodeIgniter error pages for descriptive error pop-ups rather than JSON decoding errors
 - Catches JSON decoding exceptions
@@ -13,9 +13,11 @@ for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 - Automatically sends CSRF info with requests if CSRF is enabled
 - Includes CodeIgniter library functions for formatting/transmitting data to Ext JS applications
 
-## Supported versions
+### Supported versions
 CodeIgniter-Sencha-Proxy has been tested with Ext JS 5.0.1 GPL and CodeIgniter 2.20
 
+### Supported versions
+CodeIgniter-Sencha-Proxy does not support batch operations.
  
 ## Installation and Configuration
 
@@ -242,6 +244,8 @@ $total = $this->db->count_all_results();
 // return formatted result
 return $this->senchaproxy->formatQueryResult($query,$total);
 ```
+A more extensive example showing a query with sorting, pagination, and search is available in
+the demo code.
 
 #### Format operation results
 
@@ -259,7 +263,7 @@ $record = $this->get($this->db->insert_id());
 // return formatted result
 return $this->senchaproxy->formatOperationResult($query,array($record[0]));
 ```
-formatOperationResult optionally returns a record so you can send back a record with the new id
+formatOperationResult() optionally returns a record so you can send back a record with the new id
 and potentially perform other operations without reloading the store. 
 
 
@@ -280,7 +284,7 @@ $record = $this->get($id)
 // return formatted result
 return $this->senchaproxy->formatOperationResult($query,$record);
 ```
-formatOperationResult optionally returns a record so in this example a "get" method that returns a single 
+formatOperationResult() optionally returns a record so in this example a "get" method that returns a single 
 record is being called.  This can be useful if some record values are changed by on_update db triggers.
 
 Example of formatting the results of a DB delete:
@@ -298,10 +302,10 @@ You can see these examples in action in the demo, or in the source of the exampl
 
 #### Sending responses from Controller
 
-The library includes a sendResponse function for encoding responses and sending them to the user.
+The library includes a sendResponse() function for encoding responses and sending them to the user.
 
-Example of a controller create function using send response to either return form validation errors or
-the result :
+Example of a controller create function using send response to return ether form validation errors or
+the result of the insert:
 ```
     function create()
     {
