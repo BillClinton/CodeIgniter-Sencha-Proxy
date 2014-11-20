@@ -1,0 +1,10 @@
+/* Misc */
+.exclamation {
+	background-image:url(icons/exclamation.png) !important;
+}
+.ci-message-window ul>p {
+	text-align: left;
+	background: url(icons/error.png) 2px 2px no-repeat;
+	padding-top: 3px;
+	padding-left: 24px;
+}
