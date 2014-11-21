@@ -6,6 +6,8 @@ for formatting and transmitting results to Ext JS 5 applications
 
 for a demo, go to http://www.appunto.net/codeigniter-sencha-proxy
 
+for questions or comments, post in the CodeIgniter.com forum thread: http://forum.codeigniter.com/thread-319.html
+
 - [Information](#information)
 	- [Features](#features)
 	- [Supported versions](#supported-versions)
