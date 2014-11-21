@@ -37,7 +37,7 @@ for questions or comments, post in the CodeIgniter.com forum thread: http://foru
 - Reads CodeIgniter error pages for descriptive error pop-ups rather than JSON decoding errors
 - Catches JSON decoding exceptions
 - Builds CodeIgniter URIs using CRUD operation actions or optional config parameters
-- Automatically sends CSRF info with requests if CSRF is enabled
+- Automatically sends CSRF info with requests if CSRF protection is enabled
 - Includes CodeIgniter library functions for formatting/transmitting data to Ext JS applications
 
 ### Supported versions
