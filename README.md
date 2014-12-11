@@ -19,8 +19,8 @@ for questions or comments, post in the CodeIgniter.com forum thread: http://foru
 		- [Add the proxy to your Ext JS model](#add-the-proxy-to-your-ext-js-model)
 		- [Load store data](#load-store-data)
 		- [Create records](#create-records)
-		- [Delete records](#delete-records)
 		- [Update records](#update-records)
+		- [Delete records](#delete-records)
 	- [Using the library in your CodeIgniter code](#using-the-library-in-your-codeigniter-code)
 		- [Format query results](#format-query-results)
 		- [Format operation results](#format-operation-results)
@@ -196,7 +196,7 @@ record by adding the ci_method configuration parameter to the save function like
 			});	
 ```
 
-#### Delete records
+#### Update records
 
 Example of updating a record populated by form data:
 ```
@@ -227,7 +227,8 @@ The above example will attempt to update the record using a URI of __user/update
 above, you can alter the name of the CodeIgniter controller function being called by adding the 
 ci_method configuration parameter to the save function.
 
-#### Update records
+
+#### Delete records
 
 Example of deleting a record:
 ```
