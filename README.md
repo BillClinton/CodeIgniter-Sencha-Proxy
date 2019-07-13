@@ -1,3 +1,7 @@
+# Deprecated
+*This project is no longer under development and no maintence is intended.*
+
+
 CodeIgniter-Sencha-Proxy
 ========================
 
